@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.card {
+    width: 250px;
+    margin: 20px auto;/*tren duoi la 20px, trai phai la auto*/
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .4);/*hieu ung cho card noi len tren man hinh*/
+}
+
+.user-info {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.name {
+    margin-left: 5px;
+    width: 100%;
+}
+
+.loading .logo, .loading .content, .loading .name {
+    position: relative;
+    overflow: hidden; /*khi chieu cao cua box khong du chua text, thi text tran se duoc dau di*/
+}
+
+.loading .logo::before, .loading .name::before,
+.loading .content::before{
+    background-color: #dddddd;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loading .logo::after, .loading .name::after,
+.loading .content::after{
+    /* background-color: white; */
+    content: '';
+    width: 100%;
+    height: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, #dddddd, #ffffff 50%, #dddddd);/*mau thay doi tu trai sang phai, phia ben trai co mau gray ben phai co mau gray con #ffffff 50% de o giua co mau trang*/
+    animation: skeletonLoading 2s infinite alternate; /*sau 2s moi thuc hien animation, infinite de animation lap lai mai mai
+    alternate de thay doi huong di muot ma tu trai sang phai roi lai ve phai sang trai*/
+}
+
+@keyframes skeletonLoading {
+    from {
+        left: -50%;
+    } to {
+        left: 50%;
+    }
+}
